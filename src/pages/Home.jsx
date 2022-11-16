@@ -13,7 +13,7 @@ export default function Home() {
       try {
         const data = await fetchTrendMovies();
         setMovies((prevMovie) => {
-          return [...prevMovie, ...data]
+          return [...prevMovie, ...data.results]
         })
       } catch (error) {
         setError(error)

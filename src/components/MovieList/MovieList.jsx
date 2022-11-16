@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
+import PropTypes from 'prop-types';
 
 
 export default function MovieList({ movies }) {
@@ -16,3 +17,10 @@ export default function MovieList({ movies }) {
     </ul>
   )
 }
+
+MovieList.propTypes = PropTypes.arrayOf(
+  PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title:PropTypes.string.isRequired,
+  })
+).isRequired;
