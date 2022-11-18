@@ -19,7 +19,7 @@ export default function SearchBox ({ onSubmit }) {
         onSubmit={handleSubmit}
       >
         <Form>
-          <button type="submit">
+          <button type="onSubmit">
             <AiOutlineSearch size='20'/>
           </button>
 
