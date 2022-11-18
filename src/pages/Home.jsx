@@ -22,11 +22,12 @@ export default function Home() {
         const data = await fetchTrendMovies(page);
         setMovies(movies =>
           [...movies, ...data.results]
-        )
+        );
       } finally {
         setLoading(false);
       }
     }
+    
     fetchMovies();
   }, [page])
 
