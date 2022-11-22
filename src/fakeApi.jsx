@@ -25,3 +25,26 @@ export async function getMovieDetails(id) {
   )
   return result.data
 }
+
+export async function castActorsFilm(id) {
+  try {
+    const result = await axios.get(
+    `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`
+  )
+  return result.data;
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+export async function reviewsFilm(id) {
+  try {
+    const result = await axios.get(
+    `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}`
+    )
+    return result.data;
+  } catch (error) {
+    console.log(error.message)
+  }
+}

@@ -32,25 +32,10 @@ const Movies = () => {
     }
   }, [query])
 
-  // useEffect(() => {
-  //   if (!query) {
-  //     return
-  //   };
 
-  //   searchMovies(query)
-  //     .then(data => {
-  //       setMovies(data.results);
-  //       if (data.results.length === 0) {
-  //         toast.info('No movies with such request!')
-  //       }
-  //     }).catch(error => {
-  //       setError(error);
-  //       setMovies([])
-  //     })
-  // }, [query]);
-
-  const changeFilter = value => {
-    setSearchParams({ query: value.toLowerCase() });
+  const changeFilter = ({ value }) => {
+    setMovies([]);
+    setSearchParams({ query: value });
   };
 
 
