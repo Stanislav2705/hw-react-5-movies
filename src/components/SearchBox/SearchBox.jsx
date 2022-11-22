@@ -1,5 +1,6 @@
-import {  Field, Formik } from "formik";
-import { Form } from "formik";
+import PropTypes from 'prop-types';
+// import { Field, Formik } from "formik";
+// import { Form } from "formik";
 import { useState } from "react";
 import { AiOutlineSearch } from 'react-icons/ai';
 import { toast } from "react-toastify";
@@ -7,35 +8,34 @@ import { toast } from "react-toastify";
 export default function SearchBox({ onSubmit }) {
   const [movieName, setMovieName] = useState('');
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setMovieName(e.target.value.toLowerCase());
   }
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    if (movieName.trim() === "") {
-      return toast.info("Fill this field")
+    if (movieName.trim() === '') {
+      return toast.info("Fill this field");
     }
 
-    onSubmit({movieName})
+    onSubmit({ movieName });
     reset();
   }
 
-  const reset = () => {
+  function reset() {
     setMovieName('');
   }
 
   return (
-    <div>
-      <Formik
+      <form
         onSubmit={handleSubmit}
       >
-        <Form>
+        <div>
           <button type="onSubmit">
             <AiOutlineSearch size='20'/>
           </button>
 
-          <Field
+          <input
             name="movieName"
             value={movieName}
             type="text"
@@ -44,11 +44,11 @@ export default function SearchBox({ onSubmit }) {
             autoFocus
             placeholder="Search movie"
           />
-        </Form>
-
-      </Formik>
-    </div>
+        </div>
+      </form>
   );
 };
 
-
+SearchBox.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};

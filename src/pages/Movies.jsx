@@ -8,11 +8,11 @@ import Loader from 'shared/Loader';
 import { Notify } from 'notiflix';
 
 
-const Movies = () => {
+export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("query") ?? "";
+  const query = searchParams.get("name_film") ?? "";
 
   useEffect(() => {
     async function getMoviesByQuery() {
@@ -33,24 +33,21 @@ const Movies = () => {
   }, [query])
 
 
-  const changeFilter = ({ value }) => {
+  function changeFilter({ value }) {
     setMovies([]);
-    setSearchParams({ query: value });
+    setSearchParams({ name_film: value });
   };
 
 
   return (
-    <main>
+    <>
       <SearchBox onSubmit={changeFilter} />
-      {movies.length > 0 && (
-        <MovieList movies={movies}/>
-      )}
+      {movies && <MovieList movies={movies} />}
       {loading ?? <Loader/>}
-    </main>
+    </>
   )
 }
 
-export default Movies
 
 SearchBox.propTypes = {
     onSubmit: PropTypes.func.isRequired,

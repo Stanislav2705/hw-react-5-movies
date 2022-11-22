@@ -14,14 +14,14 @@ export async function fetchTrendMovies(page) {
 
 export async function searchMovies(query) {
   const result = await axios.get(
-    `${BASE_URL}/${SEARCH}?api_key=${API_KEY}&language=en-US&query=${query}`
+    `${BASE_URL}/${SEARCH}?api_key=${API_KEY}&query=${query}`
   )
   return result.data;
 }
 
 export async function getMovieDetails(id) {
   const result = await axios.get(
-    `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`
+    `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
   )
   return result.data
 }
@@ -33,7 +33,7 @@ export async function castActorsFilm(id) {
   )
   return result.data;
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
   }
 
 }
