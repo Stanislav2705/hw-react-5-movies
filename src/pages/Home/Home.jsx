@@ -4,8 +4,9 @@ import { fetchTrendMovies } from "fakeApi";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react"
-import Loader from "shared/Loader";
+import Loader from "shared/Loader/Loader";
 import { PageContext } from "shared/PageContext/PageContext";
+import { Title } from "./Home.styled";
 
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
         setLoading(false);
       }
     }
-    
+
     fetchMovies();
   }, [page])
 
@@ -36,7 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <Title>Trending today</Title>
       {movies && <MovieList movies={movies} />}
       {loading ? <Loader/> : <LoadMore/>}
     </>

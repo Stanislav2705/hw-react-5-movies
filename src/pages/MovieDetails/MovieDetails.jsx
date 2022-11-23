@@ -1,9 +1,9 @@
 import { getMovieDetails } from "fakeApi";
 import { useState, useEffect, Suspense } from "react"
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
-import defaultImage from '../Image/default-poster.jpg'
+import defaultImage from '../../Image/default-poster.jpg'
 import { IoIosArrowBack } from "react-icons/io";
-import Loader from "shared/Loader";
+import Loader from "shared/Loader/Loader";
 
 
 export default function MovieDetails() {

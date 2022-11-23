@@ -1,23 +1,32 @@
 import { Suspense } from "react"
-import { Link, Outlet } from "react-router-dom"
-import Loader from "shared/Loader"
+import { Outlet } from "react-router-dom"
+import Loader from "shared/Loader/Loader"
+import { Container, Header, Main, NavList, NavListItem, NavListLink } from "./Layout.styled"
 
 
 
 export const Layout = () => {
   return (
     <>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-        </nav>
-      </header>
-      <main>
-        <Suspense fallback={<Loader/>}>
-          <Outlet/>
-        </Suspense>
-      </main>
+      <Header>
+        <Container>
+          <NavList>
+            <NavListItem>
+              <NavListLink to={"/"}>Home</NavListLink>
+            </NavListItem>
+            <NavListItem>
+              <NavListLink to={"/movies"}>Movies</NavListLink>
+            </NavListItem>
+          </NavList>
+        </Container>
+      </Header>
+      <Main>
+        <Container>
+          <Suspense fallback={<Loader/>}>
+            <Outlet />
+          </Suspense>
+        </Container>
+      </Main>
     </>
   )
 }

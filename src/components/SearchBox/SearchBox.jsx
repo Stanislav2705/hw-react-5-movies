@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 import { AiOutlineSearch } from 'react-icons/ai';
 import { toast } from "react-toastify";
+import { Button, Form, Input } from './SearchBox.styled';
 
-export default function SearchBox({ onSubmit }) {
+export default function SearchBox({ submit }) {
   const [movieName, setMovieName] = useState('');
 
   function handleChange(e) {
@@ -18,7 +19,7 @@ export default function SearchBox({ onSubmit }) {
       return toast.info("Fill this field");
     }
 
-    onSubmit({ movieName });
+    submit({ movieName });
     reset();
   }
 
@@ -27,28 +28,27 @@ export default function SearchBox({ onSubmit }) {
   }
 
   return (
-      <form
+      <Form
         onSubmit={handleSubmit}
       >
         <div>
-          <button type="onSubmit">
-            <AiOutlineSearch size='20'/>
-          </button>
-
-          <input
+          <Input
             name="movieName"
             value={movieName}
             type="text"
             autoComplete="off"
             onChange={handleChange}
-            autoFocus
+            // autoFocus
             placeholder="Search movie"
-          />
+        />
+        <Button type="submit">
+            <AiOutlineSearch size='20'/>
+        </Button>
         </div>
-      </form>
+      </Form>
   );
 };
 
 SearchBox.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+    submit: PropTypes.func.isRequired,
 };

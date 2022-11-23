@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { PageContext } from "shared/PageContext/PageContext";
+import { Button } from "./LoadMore.styled";
 
 
 export default function LoadMore() {
@@ -10,6 +11,6 @@ export default function LoadMore() {
   }
 
   return (
-    <button type="button" onClick={onLoadMore}>Load More</button>
+    <Button type="button" onClick={onLoadMore}>Load More</Button>
   )
 }

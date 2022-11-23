@@ -1,25 +1,25 @@
 // import { Link, useLocation } from "react-router-dom"
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import MovieItem from "components/MovieItem/MovieItem"
+import { List } from './MovieList.styled';
 
 
 export default function MovieList({ movies }) {
 
   return (
     <>
-      <ul>
+      <List>
       {movies.map(movie => {
         return <MovieItem key={movie.id} {...movie} />
       })}
-      </ul>
+      </List>
     </>
   )
 }
 
-// MovieList.propTypes = PropTypes.arrayOf(
-//   PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       title:PropTypes.string.isRequired,
-//   })
-// ).isRequired;
+MovieList.propTypes = PropTypes.arrayOf(
+  PropTypes.shape({
+      movies:PropTypes.string.isRequired,
+  })
+).isRequired;

@@ -12,9 +12,9 @@ export async function fetchTrendMovies(page) {
   return result.data;
 }
 
-export async function searchMovies(query) {
+export async function searchMovies(query,page) {
   const result = await axios.get(
-    `${BASE_URL}/${SEARCH}?api_key=${API_KEY}&query=${query}`
+    `${BASE_URL}/${SEARCH}?api_key=${API_KEY}&query=${query}&page=${page}`
   )
   return result.data;
 }

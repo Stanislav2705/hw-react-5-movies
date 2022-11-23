@@ -1,16 +1,17 @@
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import PropTypes from 'prop-types';
+import { LinkItem, ListItem, Title } from "./MovieItem.styled";
 
 
 export default function MovieItem({ id, original_title }) {
   const location = useLocation();
 
   return (
-    <li>
-      <Link to={`/movies/${id}`} state={{ from: location }}>
-        <h3>{original_title}</h3>
-      </Link>
-    </li>
+    <ListItem>
+      <LinkItem to={`/movies/${id}`} state={{ from: location }}>
+        <Title>{original_title}</Title>
+      </LinkItem>
+    </ListItem>
   )
 }
 
