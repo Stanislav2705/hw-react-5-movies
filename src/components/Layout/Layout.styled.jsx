@@ -21,9 +21,15 @@ export const NavList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  @media screen and (max-width: 420px) {
+    justify-content: space-around;
+  }
 `
 export const NavListItem = styled.li`
   margin-left: 20px;
+  @media screen and (max-width: 420px) {
+    margin-left: 0;
+  }
 `
 export const NavListLink = styled(NavLink)`
   text-decoration: none;

@@ -5,7 +5,7 @@ export const Form = styled.form`
   text-align: center;
 `
 
-export const Wrapper = styled.div`
+export const Block = styled.div`
   display: block;
 `
 export const Button = styled.button`
@@ -27,11 +27,14 @@ export const Button = styled.button`
   }
 `
 export const Input = styled.input`
-  width: 300px;
+  width: 200px;
   height: 20px;
   padding: 6px;
   outline: none;
   border: 1px solid black;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
+  @media screen and (min-width: 420px) {
+    width: 300px;
+  }
 `

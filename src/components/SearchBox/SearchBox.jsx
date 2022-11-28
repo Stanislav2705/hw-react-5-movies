@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 import { AiOutlineSearch } from 'react-icons/ai';
 import { toast } from "react-toastify";
-import { Button, Form, Input } from './SearchBox.styled';
+import { Block, Button, Form, Input } from './SearchBox.styled';
 
 export default function SearchBox({ submit }) {
   const [movieName, setMovieName] = useState('');
@@ -31,7 +31,7 @@ export default function SearchBox({ submit }) {
       <Form
         onSubmit={handleSubmit}
       >
-        <div>
+        <Block>
           <Input
             name="movieName"
             value={movieName}
@@ -44,7 +44,7 @@ export default function SearchBox({ submit }) {
         <Button type="submit">
             <AiOutlineSearch size='20'/>
         </Button>
-        </div>
+        </Block>
       </Form>
   );
 };

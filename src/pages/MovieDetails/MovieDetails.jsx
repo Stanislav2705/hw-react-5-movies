@@ -62,8 +62,8 @@ export default function MovieDetails() {
           <p>Genres</p>
           <p>{genre}</p>
         </div>
-        </div>
-        <div>
+      </div>
+      <div>
           <title>Additional information</title>
           <ul>
             <li>
