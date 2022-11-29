@@ -7,6 +7,9 @@ export const Form = styled.form`
 
 export const Block = styled.div`
   display: block;
+  @media screen and (max-width: 420px) {
+    padding-right: 40px
+  }
 `
 export const Button = styled.button`
   position: absolute;

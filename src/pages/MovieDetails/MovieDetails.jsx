@@ -1,9 +1,10 @@
 import { getMovieDetails } from "fakeApi";
 import { useState, useEffect, Suspense } from "react"
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import defaultImage from '../../Image/default-poster.jpg'
 import { IoIosArrowBack } from "react-icons/io";
 import Loader from "shared/Loader/Loader";
+import { Box, Content, Img, Info, ItemListInfo, LinkEl, LinkListInfo, ListInfo, Text, Title, TitleInfo } from "./MovieDetails.styled";
 
 
 export default function MovieDetails() {
@@ -44,40 +45,40 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Link to={backLink}>
+      <LinkEl to={backLink}>
         <IoIosArrowBack/>
         Go back
-      </Link>
+      </LinkEl>
 
       {loading && <Loader />}
-      <div>
-        <img src={IMG} width="300" alt={original_title} />
-        <div>
-          <title>
+      <Box>
+        <Img src={IMG} width="300" alt={original_title} />
+        <Content>
+          <Title>
             {original_title} ({date ? date : "NOT TITLE"})
-          </title>
-          <p>User score: {voteAverage}%</p>
-          <p>Overview</p>
-          <p>{overview}</p>
-          <p>Genres</p>
-          <p>{genre}</p>
-        </div>
-      </div>
-      <div>
-          <title>Additional information</title>
-          <ul>
-            <li>
-              <Link to={castLink} state={{ from: backLink }}>
+          </Title>
+          <Text>User score: {voteAverage}%</Text>
+          <Title>Overview</Title>
+          <Text>{overview}</Text>
+          <Title>Genres</Title>
+          <Text>{genre}</Text>
+        </Content>
+      </Box>
+      <Info>
+          <TitleInfo>Additional information</TitleInfo>
+          <ListInfo>
+            <ItemListInfo>
+              <LinkListInfo to={castLink} state={{ from: backLink }}>
                 Cast
-              </Link>
-            </li>
-            <li>
-              <Link to={reviewsLink} state={{ from: backLink }}>
+              </LinkListInfo>
+            </ItemListInfo>
+            <ItemListInfo>
+              <LinkListInfo to={reviewsLink} state={{ from: backLink }}>
                 Reviews
-              </Link>
-            </li>
-          </ul>
-        </div>
+              </LinkListInfo>
+            </ItemListInfo>
+          </ListInfo>
+        </Info>
       <Suspense fallback={null}>
         <Outlet/>
       </Suspense>

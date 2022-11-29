@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
-// import { Field, Formik } from "formik";
-// import { Form } from "formik";
 import { useState } from "react";
 import { AiOutlineSearch } from 'react-icons/ai';
-import { toast } from "react-toastify";
+import { Notify } from 'notiflix';
 import { Block, Button, Form, Input } from './SearchBox.styled';
 
 export default function SearchBox({ submit }) {
@@ -16,7 +14,7 @@ export default function SearchBox({ submit }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (movieName.trim() === '') {
-      return toast.info("Fill this field");
+      return Notify.warning("Fill this field");
     }
 
     submit({ movieName });

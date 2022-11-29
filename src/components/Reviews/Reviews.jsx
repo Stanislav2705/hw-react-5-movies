@@ -1,6 +1,7 @@
 import { reviewsFilm } from "fakeApi";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
+import { List, Text, Title } from "./Reviews.styled";
 
 
 
@@ -13,19 +14,19 @@ export default function Reviews() {
   }, [movieId])
 
   return (
-    <ul>
+    <List>
       {reviews?.results.length === 0 ? (
-        <p>We don't have any reviews for this movie.</p>
+        <Text>We don't have any reviews for this movie.</Text>
       ) : (
         reviews?.results.map(({ id, author, content }) => {
           return (
             <li key={id}>
-              <h3>{author}</h3>
-              <p>{content}</p>
+              <Title>{author}</Title>
+              <Text>{content}</Text>
             </li>
           );
         })
       )}
-    </ul>
+    </List>
   );
 }
